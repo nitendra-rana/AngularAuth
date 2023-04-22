@@ -11,13 +11,15 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
     const data: any = localStorage.getItem('user');
     let user;
-    if (user !== null) {
+    if (data !== null) {
       user = JSON.parse(data);
     }
     const email: string = user?.email;
     const role: string = user?.role;
-    
-    
-    return true
+    if(email){
+        return true;
+    }
+    this.router.navigate(["/login"]);
+    return false
   }
 }

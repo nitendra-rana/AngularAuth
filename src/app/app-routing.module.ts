@@ -8,11 +8,13 @@ import { AuthSummaryGuard } from './auth-summary.guard';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch:"prefix"},
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard, AuthSummaryGuard] }
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard, AuthSummaryGuard], pathMatch: 'full' },
+  
 ];
+
 
 
 @NgModule({

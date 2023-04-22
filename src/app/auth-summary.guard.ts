@@ -13,7 +13,7 @@ export class AuthSummaryGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const data: any = localStorage.getItem('user');
       let user;
-      if (user !== null) {
+      if (data !== null) {
         user = JSON.parse(data);
       }
     const role: string = user?.role;
